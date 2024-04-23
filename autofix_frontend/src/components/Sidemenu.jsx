@@ -55,28 +55,28 @@ export default function Sidemenu({ open, toggleDrawer }) {
       <Divider />
 
       <List>
-        <ListItemButton onClick={() => handleNavigation("/reports/vehicles")}>
+        <ListItemButton onClick={() => handleNavigation("/reports/repair-costs")}>
           <ListItemIcon>
             <ReportIcon />
           </ListItemIcon>
-          <ListItemText primary="Vehicle Cost Report" />
+          <ListItemText primary="Repair Cost Report" />
         </ListItemButton>
 
-        <ListItemButton onClick={() => handleNavigation("/reports/repairs")}>
+        <ListItemButton onClick={() => handleNavigation("reports/repair-type-summary")}>
           <ListItemIcon>
             <ReportIcon />
           </ListItemIcon>
           <ListItemText primary="Repair Type Summary Report" />
         </ListItemButton>
 
-        <ListItemButton onClick={() => handleNavigation("/reports/annual")}>
+        <ListItemButton onClick={() => handleNavigation("reports/average-repair-time")}>
           <ListItemIcon>
             <ReportIcon />
           </ListItemIcon>
           <ListItemText primary="Average Repair Time Report" />
         </ListItemButton>
 
-        <ListItemButton onClick={() => handleNavigation("/reports/summary")}>
+        <ListItemButton onClick={() => handleNavigation("reports/repair-types-engine-summary")}>
           <ListItemIcon>
             <ReportIcon />
           </ListItemIcon>

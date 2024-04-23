@@ -4,12 +4,12 @@ import Navbar from "./components/Navbar";
 import Home from './components/Home';
 import VehicleList from './components/VehicleList';
 import AddEditVehicle from './components/AddEditVehicle';
-//import RepairList from './components/RepairList';
-//import RepairForm from './components/RepairForm';
-//import ReportVehicle from './components/RepairCostReport'; // R1
-//import ReportRepair from './components/RepairTypeSummaryReport'; // R2
-//import ReportAnnual from './components/AverageRepairTimeReport'; // R3
-//import ReportSummary from './components/RepairTypeMotorReport'; // R4
+import RepairList from './components/RepairList';
+import AddEditRepair from './components/AddEditRepair';
+import RepairCostsReport from './components/RepairCostsReport'; // R1
+import RepairTypeSummaryReport from './components/RepairTypeSummaryReport'; // R2
+import AverageRepairTimeReport from './components/AverageRepairTimeReport'; // R3
+import RepairTypesEngineReport from './components/RepairTypesEngineReport'; // R4
 import NotFound from './components/NotFound';
 
 function App() {
@@ -22,6 +22,16 @@ function App() {
           <Route path="/vehicles" element={<VehicleList />} />
           <Route path="/vehicles/create" element={<AddEditVehicle />} />
           <Route path="/vehicles/edit/:id" element={<AddEditVehicle />} />
+
+          <Route path="/repairs" element={<RepairList />} />
+          <Route path="/repairs/create" element={<AddEditRepair />} />
+          <Route path="/repairs/edit/:id" element={<AddEditRepair />} />
+
+          <Route path="/reports/repair-costs" element={<RepairCostsReport />} />
+          <Route path="/reports/repair-type-summary" element={<RepairTypeSummaryReport />} />
+          <Route path="/reports/average-repair-time" element={<AverageRepairTimeReport />} />
+          <Route path="/reports/repair-types-engine-summary" element={<RepairTypesEngineReport />} />
+          
 
           <Route path="*" element={<NotFound />} />
         </Routes>

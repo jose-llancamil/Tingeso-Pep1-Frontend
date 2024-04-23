@@ -86,28 +86,28 @@ const AddEditVehicle = () => {
       <h3>{id ? "Edit Vehicle" : "Add Vehicle"}</h3>
       <hr />
       <FormControl fullWidth>
-        <TextField label="License Plate Number" value={licensePlateNumber} onChange={e => setLicensePlateNumber(e.target.value)} />
+        <TextField label="License Plate Number" value={licensePlateNumber} onChange={e => setLicensePlateNumber(e.target.value)} sx={{ mb: 1 }} />
       </FormControl>
       <FormControl fullWidth>
-        <TextField label="Brand" value={brand} onChange={e => setBrand(e.target.value)} />
+        <TextField label="Brand" value={brand} onChange={e => setBrand(e.target.value)} sx={{ mb: 1 }} />
       </FormControl>
       <FormControl fullWidth>
-        <TextField label="Model" value={model} onChange={e => setModel(e.target.value)} />
+        <TextField label="Model" value={model} onChange={e => setModel(e.target.value)} sx={{ mb: 1 }} />
       </FormControl>
       <FormControl fullWidth>
-        <TextField label="Type" value={type} onChange={e => setType(e.target.value)} />
+        <TextField label="Type" value={type} onChange={e => setType(e.target.value)} sx={{ mb: 1 }}  />
       </FormControl>
       <FormControl fullWidth>
-        <TextField label="Manufacture Year" value={manufactureYear} onChange={e => setManufactureYear(e.target.value)} />
+        <TextField label="Manufacture Year" value={manufactureYear} onChange={e => setManufactureYear(e.target.value)} sx={{ mb: 1 }} />
       </FormControl>
       <FormControl fullWidth>
-        <TextField label="Engine Type" value={engineType} onChange={e => setEngineType(e.target.value)} />
+        <TextField label="Engine Type" value={engineType} onChange={e => setEngineType(e.target.value)} sx={{ mb: 1 }} />
       </FormControl>
       <FormControl fullWidth>
-        <TextField label="Mileage" type="number" value={mileage} onChange={e => setMileage(e.target.value)} />
+        <TextField label="Mileage" type="number" value={mileage} onChange={e => setMileage(e.target.value)} sx={{ mb: 1 }} />
       </FormControl>
       <FormControl fullWidth>
-        <TextField label="Seat Count" type="number" value={seatCount} onChange={e => setSeatCount(e.target.value)} />
+        <TextField label="Seat Count" type="number" value={seatCount} onChange={e => setSeatCount(e.target.value)} sx={{ mb: 1 }} />
       </FormControl>
       <Button variant="contained" color="primary" type="submit" startIcon={<SaveIcon />}>
         Save

@@ -18,7 +18,6 @@ const VehicleList = () => {
 
   const navigate = useNavigate();
 
-  // Función para inicializar y cargar los datos de vehículos
   const init = () => {
     vehicleService
       .getAll()

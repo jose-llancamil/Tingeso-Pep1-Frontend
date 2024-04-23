@@ -8,7 +8,7 @@ const Home = () => {
         <ul>
           <li><a href="https://spring.io/projects/spring-boot">Spring Boot</a> para el backend,</li>
           <li><a href="https://reactjs.org/">React</a> para el frontend, y</li>
-          <li><a href="https://www.mysql.com/products/community/">MySQL</a> o <a href="https://www.postgresql.org">PostgreSQL</a> para la base de datos.</li>
+          <li><a href="https://www.mysql.com/products/community/">MySQL</a> para la base de datos.</li>
         </ul>
         <p>
           El sistema proporciona una interfaz intuitiva y un enfoque modular para gestionar eficientemente las necesidades del taller y mejorar la satisfacción del cliente.
