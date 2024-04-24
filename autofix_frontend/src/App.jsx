@@ -11,12 +11,14 @@ import RepairTypeSummaryReport from './components/RepairTypeSummaryReport'; // R
 import AverageRepairTimeReport from './components/AverageRepairTimeReport'; // R3
 import RepairTypesEngineReport from './components/RepairTypesEngineReport'; // R4
 import NotFound from './components/NotFound';
+import Footer from './components/Footer';
 
 function App() {
   return (
     <Router>
       <div className="container">
         <Navbar /> 
+        
         <Routes> 
           <Route path="/" element={<Home />} />
           <Route path="/vehicles" element={<VehicleList />} />
@@ -31,7 +33,6 @@ function App() {
           <Route path="/reports/repair-type-summary" element={<RepairTypeSummaryReport />} />
           <Route path="/reports/average-repair-time" element={<AverageRepairTimeReport />} />
           <Route path="/reports/repair-types-engine-summary" element={<RepairTypesEngineReport />} />
-          
 
           <Route path="*" element={<NotFound />} />
         </Routes>

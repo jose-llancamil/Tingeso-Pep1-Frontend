@@ -5,7 +5,7 @@ import Typography from '@mui/material/Typography';
 import { DataGrid } from '@mui/x-data-grid';
 
 const columns = [
-  { field: 'vehicleInfo', headerName: 'Vehicle', width: 200 },
+  { field: 'vehicleDetails', headerName: 'Vehicle', width: 200 }, 
   { field: 'totalCost', headerName: 'Total Cost', width: 130 },
   { field: 'repairCount', headerName: 'Number of Repairs', width: 180 },
 ];
@@ -17,7 +17,7 @@ const RepairCostsReport = () => {
     reportService.generateRepairCostReport().then((response) => {
       const formattedData = response.data.map((item) => ({
         id: item.vehicleId,
-        vehicleInfo: item.vehicle,
+        vehicleDetails: item.vehicleDetails, 
         totalCost: item.totalCost,
         repairCount: item.numberOfRepairs,
       }));

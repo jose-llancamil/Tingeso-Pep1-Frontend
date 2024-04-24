@@ -5,9 +5,10 @@ import Typography from '@mui/material/Typography';
 import { DataGrid } from '@mui/x-data-grid';
 
 const columns = [
-  { field: 'repairType', headerName: 'Repair Type', width: 200 },
+  { field: 'repairTypeDescription', headerName: 'Repair Type', width: 200 }, 
   { field: 'engineType', headerName: 'Engine Type', width: 200 },
-  { field: 'count', headerName: 'Count', width: 130 },
+  { field: 'vehicleCount', headerName: 'Vehicle Count', width: 130 }, 
+  { field: 'totalCost', headerName: 'Total Cost', width: 130 },
 ];
 
 const RepairTypesEngineReport = () => {
@@ -17,9 +18,10 @@ const RepairTypesEngineReport = () => {
     reportService.generateRepairTypesEngineSummary().then((response) => {
       const formattedData = response.data.map((item, index) => ({
         id: index + 1,
-        repairType: item.repairType,
+        repairTypeDescription: item.repairTypeDescription, 
         engineType: item.engineType,
-        count: item.count,
+        vehicleCount: item.vehicleCount, 
+        totalCost: item.totalCost,
       }));
       setReportData(formattedData);
     }).catch((error) => {

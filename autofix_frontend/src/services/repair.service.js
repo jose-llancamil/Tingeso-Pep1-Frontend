@@ -20,4 +20,8 @@ const remove = id => {
     return httpClient.delete(`/api/v1/repairs/${id}`);
 }
 
-export default { getAll, create, get, update, remove };
+const getTotalRepairCost = id => {
+    return httpClient.get(`/api/v1/repairs/${id}/total-cost`);
+}
+
+export default { getAll, create, get, update, remove, getTotalRepairCost };

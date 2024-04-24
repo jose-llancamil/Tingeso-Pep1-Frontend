@@ -10,6 +10,7 @@ import HomeIcon from "@mui/icons-material/Home";
 import DirectionsCarIcon from "@mui/icons-material/DirectionsCar";
 import BuildIcon from "@mui/icons-material/Build";
 import ReportIcon from "@mui/icons-material/Report";
+import SummarizeIcon from '@mui/icons-material/Summarize';
 import { useNavigate } from "react-router-dom";
 
 export default function Sidemenu({ open, toggleDrawer }) {
@@ -57,28 +58,28 @@ export default function Sidemenu({ open, toggleDrawer }) {
       <List>
         <ListItemButton onClick={() => handleNavigation("/reports/repair-costs")}>
           <ListItemIcon>
-            <ReportIcon />
+            <SummarizeIcon />
           </ListItemIcon>
           <ListItemText primary="Repair Cost Report" />
         </ListItemButton>
 
         <ListItemButton onClick={() => handleNavigation("reports/repair-type-summary")}>
           <ListItemIcon>
-            <ReportIcon />
+            <SummarizeIcon />
           </ListItemIcon>
           <ListItemText primary="Repair Type Summary Report" />
         </ListItemButton>
 
         <ListItemButton onClick={() => handleNavigation("reports/average-repair-time")}>
           <ListItemIcon>
-            <ReportIcon />
+            <SummarizeIcon />
           </ListItemIcon>
           <ListItemText primary="Average Repair Time Report" />
         </ListItemButton>
 
         <ListItemButton onClick={() => handleNavigation("reports/repair-types-engine-summary")}>
           <ListItemIcon>
-            <ReportIcon />
+            <SummarizeIcon />
           </ListItemIcon>
           <ListItemText primary="Repair Type Motor Report" />
         </ListItemButton>

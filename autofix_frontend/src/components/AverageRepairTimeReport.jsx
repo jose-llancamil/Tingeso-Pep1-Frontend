@@ -6,7 +6,7 @@ import { DataGrid } from '@mui/x-data-grid';
 
 const columns = [
   { field: 'brand', headerName: 'Brand', width: 200 },
-  { field: 'averageRepairTime', headerName: 'Average Repair Time', width: 200 },
+  { field: 'averageTime', headerName: 'Average Repair Time', width: 200 },
 ];
 
 const AverageRepairTimeReport = () => {
@@ -17,7 +17,7 @@ const AverageRepairTimeReport = () => {
       const formattedData = response.data.map((item) => ({
         id: item.brand,
         brand: item.brand,
-        averageRepairTime: item.averageRepairTime,
+        averageTime: item.averageTime,
       }));
       setReportData(formattedData);
     }).catch((error) => {

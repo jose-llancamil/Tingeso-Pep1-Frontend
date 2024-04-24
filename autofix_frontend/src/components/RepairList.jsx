@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import vehicleService from "../services/vehicle.service";
 import repairService from "../services/repair.service";
@@ -13,13 +13,22 @@ import Button from "@mui/material/Button";
 import BuildIcon from "@mui/icons-material/Build";
 import EditIcon from "@mui/icons-material/Edit";
 import DeleteIcon from "@mui/icons-material/Delete";
+import Dialog from '@mui/material/Dialog';
+import DialogTitle from '@mui/material/DialogTitle';
+import DialogContent from '@mui/material/DialogContent';
+import DialogContentText from '@mui/material/DialogContentText';
+import DialogActions from '@mui/material/DialogActions';
+import PaidIcon from '@mui/icons-material/Paid';
 
 const RepairList = () => {
   const [vehicles, setVehicles] = useState([]);
+  const [open, setOpen] = useState(false);
+  const [totalCost, setTotalCost] = useState(0);
+  const [selectedRepairId, setSelectedRepairId] = useState(null);
   const navigate = useNavigate();
 
   const init = () => {
-    vehicleService.getAll() 
+    vehicleService.getAll()
       .then(response => {
         console.log("Mostrando listado de todos los vehículos con reparaciones.", response.data);
         setVehicles(response.data);
@@ -39,7 +48,7 @@ const RepairList = () => {
       repairService.remove(repairId)
         .then(() => {
           console.log("Reparación eliminada.");
-          init();  
+          init();
         })
         .catch(error => {
           console.error("Error al eliminar la reparación", error);
@@ -47,15 +56,33 @@ const RepairList = () => {
     }
   };
 
+  const handleOpenPopup = (repairId) => {
+    setSelectedRepairId(repairId);
+    repairService.getTotalRepairCost(repairId)
+      .then(response => {
+        setTotalCost(response.data);
+        setOpen(true);
+      })
+      .catch(error => {
+        console.error("Error al obtener el costo total de la reparación", error);
+      });
+  };
+
+  const handleClosePopup = () => {
+    setOpen(false);
+    setTotalCost(0);
+    setSelectedRepairId(null);
+  };
+
   return (
     <TableContainer component={Paper}>
       <br />
       <Link to="/repairs/create" style={{ textDecoration: "none" }}>
-      <div className="card-content">
-        <Button variant="contained" color="primary" startIcon={<BuildIcon />}>
-          Añadir Reparación
-        </Button>
-      </div>
+        <div className="card-content">
+          <Button variant="contained" color="primary" startIcon={<BuildIcon />}>
+            Añadir Reparación
+          </Button>
+        </div>
       </Link>
       <br /><br />
       <Table sx={{ minWidth: 650 }} aria-label="tabla de reparaciones">
@@ -102,12 +129,36 @@ const RepairList = () => {
                   >
                     Eliminar
                   </Button>
+                  <Button
+                    variant="contained"
+                    color="primary"
+                    size="small"
+                    onClick={() => handleOpenPopup(repair.repairId)}
+                    startIcon={<PaidIcon />}
+                    style={{ marginLeft: "10px" }}
+                  >
+                    Costo Total
+                  </Button>
                 </TableCell>
               </TableRow>
             ))
           )}
         </TableBody>
       </Table>
+
+      <Dialog open={open} onClose={handleClosePopup}>
+        <DialogTitle>Costo Total de la Reparación</DialogTitle>
+        <DialogContent>
+          <DialogContentText>
+            El costo total de la reparación es: {totalCost}
+          </DialogContentText>
+        </DialogContent>
+        <DialogActions>
+          <Button onClick={handleClosePopup} color="primary">
+            Cerrar
+          </Button>
+        </DialogActions>
+      </Dialog>
     </TableContainer>
   );
 };

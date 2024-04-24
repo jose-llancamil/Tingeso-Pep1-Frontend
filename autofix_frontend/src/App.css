@@ -1,16 +1,17 @@
 #root {
-  width: 90%; /* Usa el 100% del ancho disponible */
-  min-height: 100vh; /* Asegura que el contenedor raíz siempre llene la altura de la ventana */
+  margin-bottom: 10px;
+  width: 95%;
+  min-height: 100vh;
   margin: 0 auto;
-  padding: 1rem; /* Reduce un poco el padding para dar más espacio al contenido */
-  display: flex; /* Habilita flexbox para mejorar la disposición de los elementos */
-  flex-direction: column; /* Ordena los elementos verticalmente */
-  align-items: center; /* Centra los elementos horizontalmente */
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .card {
   padding: 2em;
-  width: 90%; /* Ancho de las tarjetas */
+  width: 100%;
 }
 
 .read-the-docs {
