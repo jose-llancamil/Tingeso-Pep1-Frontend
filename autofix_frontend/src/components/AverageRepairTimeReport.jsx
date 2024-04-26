@@ -5,8 +5,8 @@ import Typography from '@mui/material/Typography';
 import { DataGrid } from '@mui/x-data-grid';
 
 const columns = [
-  { field: 'brand', headerName: 'Brand', width: 200 },
-  { field: 'averageTime', headerName: 'Average Repair Time', width: 200 },
+  { field: 'brand', headerName: 'Marca', width: 200 },
+  { field: 'averageTime', headerName: 'Tiempo promedio de reparación', width: 300 },
 ];
 
 const AverageRepairTimeReport = () => {
@@ -28,10 +28,10 @@ const AverageRepairTimeReport = () => {
   return (
     <Box sx={{ height: 400, width: '100%' }}>
       <Typography variant="h6" gutterBottom component="div" sx={{ mb: 3 }}>
-        Average Repair Time Report
+        Información sobre el tiempo promedio de reparación
       </Typography>
       <Typography variant="body2" gutterBottom>
-        This report shows the average repair time for each brand.
+      Este reporte muestra el tiempo promedio de reparación de cada marca.
       </Typography>
       <DataGrid
         rows={reportData}

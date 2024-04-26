@@ -67,7 +67,7 @@ const VehicleList = () => {
       <Table sx={{ minWidth: 650 }} size="small" aria-label="a dense table">
         <TableHead>
           <TableRow>
-            <TableCell align="left" sx={{ fontWeight: "bold" }}>Placa</TableCell>
+            <TableCell align="left" sx={{ fontWeight: "bold" }}>Patente</TableCell>
             <TableCell align="left" sx={{ fontWeight: "bold" }}>Marca</TableCell>
             <TableCell align="left" sx={{ fontWeight: "bold" }}>Modelo</TableCell>
             <TableCell align="left" sx={{ fontWeight: "bold" }}>Tipo</TableCell>

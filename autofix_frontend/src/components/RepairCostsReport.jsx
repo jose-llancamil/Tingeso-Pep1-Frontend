@@ -5,9 +5,9 @@ import Typography from '@mui/material/Typography';
 import { DataGrid } from '@mui/x-data-grid';
 
 const columns = [
-  { field: 'vehicleDetails', headerName: 'Vehicle', width: 200 }, 
-  { field: 'totalCost', headerName: 'Total Cost', width: 130 },
-  { field: 'repairCount', headerName: 'Number of Repairs', width: 180 },
+  { field: 'vehicleDetails', headerName: 'Vehículo', width: 200 },
+  { field: 'totalCost', headerName: 'Costo Total', width: 130 },
+  { field: 'repairCount', headerName: 'Cantidad de Reparaciones', width: 180 },
 ];
 
 const RepairCostsReport = () => {
@@ -17,7 +17,7 @@ const RepairCostsReport = () => {
     reportService.generateRepairCostReport().then((response) => {
       const formattedData = response.data.map((item) => ({
         id: item.vehicleId,
-        vehicleDetails: item.vehicleDetails, 
+        vehicleDetails: item.vehicleDetails,
         totalCost: item.totalCost,
         repairCount: item.numberOfRepairs,
       }));
@@ -30,10 +30,10 @@ const RepairCostsReport = () => {
   return (
     <Box sx={{ height: 400, width: '100%' }}>
       <Typography variant="h6" gutterBottom component="div" sx={{ mb: 3 }}>
-        Repair Costs Report
+        Informe sobre costes de reparación
       </Typography>
       <Typography variant="body2" gutterBottom>
-        This report shows the total repair costs per vehicle along with the count of repairs.
+        Este informe muestra los costes totales de reparación por vehículo junto con el recuento de reparaciones.
       </Typography>
       <DataGrid
         rows={reportData}

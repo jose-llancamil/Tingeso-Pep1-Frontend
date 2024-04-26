@@ -6,6 +6,8 @@ import VehicleList from './components/VehicleList';
 import AddEditVehicle from './components/AddEditVehicle';
 import RepairList from './components/RepairList';
 import AddEditRepair from './components/AddEditRepair';
+import BonusList from './components/BonusList';
+import AddEditBonus from './components/AddEditBonus';
 import RepairCostsReport from './components/RepairCostsReport'; // R1
 import RepairTypeSummaryReport from './components/RepairTypeSummaryReport'; // R2
 import AverageRepairTimeReport from './components/AverageRepairTimeReport'; // R3
@@ -28,6 +30,10 @@ function App() {
           <Route path="/repairs" element={<RepairList />} />
           <Route path="/repairs/create" element={<AddEditRepair />} />
           <Route path="/repairs/edit/:id" element={<AddEditRepair />} />
+
+          <Route path="/bonuses" element={<BonusList />} />
+          <Route path="/bonuses/create" element={<AddEditBonus />} />
+          <Route path="/bonuses/edit/:id" element={<AddEditBonus />} />
 
           <Route path="/reports/repair-costs" element={<RepairCostsReport />} />
           <Route path="/reports/repair-type-summary" element={<RepairTypeSummaryReport />} />

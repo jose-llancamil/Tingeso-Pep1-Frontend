@@ -5,9 +5,9 @@ import Typography from '@mui/material/Typography';
 import { DataGrid } from '@mui/x-data-grid';
 
 const columns = [
-  { field: 'repairType', headerName: 'Repair Type', width: 200 },
-  { field: 'totalCost', headerName: 'Total Cost', width: 130 },
-  { field: 'vehicleTypeCount', headerName: 'Number of Vehicles', width: 180 }, 
+  { field: 'repairType', headerName: 'Tipo de Reparación', width: 200 },
+  { field: 'totalCost', headerName: 'Costo Total', width: 130 },
+  { field: 'vehicleTypeCount', headerName: 'Vehículos', width: 180 },
 ];
 
 const RepairTypeSummaryReport = () => {
@@ -30,10 +30,10 @@ const RepairTypeSummaryReport = () => {
   return (
     <Box sx={{ height: 400, width: '100%' }}>
       <Typography variant="h6" gutterBottom component="div" sx={{ mb: 3 }}>
-        Repair Type Summary Report
+        Informe sobre tipos de reparación
       </Typography>
       <Typography variant="body2" gutterBottom>
-        This report shows the total repair costs and number of vehicles for each repair type.
+        Este informe muestra los costes totales de reparación y el número de vehículos para cada tipo de reparación.
       </Typography>
       <DataGrid
         rows={reportData}

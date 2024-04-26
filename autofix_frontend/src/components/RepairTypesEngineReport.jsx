@@ -5,10 +5,10 @@ import Typography from '@mui/material/Typography';
 import { DataGrid } from '@mui/x-data-grid';
 
 const columns = [
-  { field: 'repairTypeDescription', headerName: 'Repair Type', width: 200 }, 
-  { field: 'engineType', headerName: 'Engine Type', width: 200 },
-  { field: 'vehicleCount', headerName: 'Vehicle Count', width: 130 }, 
-  { field: 'totalCost', headerName: 'Total Cost', width: 130 },
+  { field: 'repairTypeDescription', headerName: 'Tipo de Reparación', width: 200 },
+  { field: 'engineType', headerName: 'Tipo de Motor', width: 200 },
+  { field: 'vehicleCount', headerName: 'Vehículos', width: 130 },
+  { field: 'totalCost', headerName: 'Costo Total', width: 130 },
 ];
 
 const RepairTypesEngineReport = () => {
@@ -18,9 +18,9 @@ const RepairTypesEngineReport = () => {
     reportService.generateRepairTypesEngineSummary().then((response) => {
       const formattedData = response.data.map((item, index) => ({
         id: index + 1,
-        repairTypeDescription: item.repairTypeDescription, 
+        repairTypeDescription: item.repairTypeDescription,
         engineType: item.engineType,
-        vehicleCount: item.vehicleCount, 
+        vehicleCount: item.vehicleCount,
         totalCost: item.totalCost,
       }));
       setReportData(formattedData);
@@ -32,10 +32,10 @@ const RepairTypesEngineReport = () => {
   return (
     <Box sx={{ height: 400, width: '100%' }}>
       <Typography variant="h6" gutterBottom component="div" sx={{ mb: 3 }}>
-        Repair Type Engine Summary Report
+        Informe de reparaciones por tipo de motor.
       </Typography>
       <Typography variant="body2" gutterBottom>
-        This report shows the count of each repair type categorized by engine type.
+        Este reporte muestra el recuento de cada tipo de reparación categorizado por tipo de motor.
       </Typography>
       <DataGrid
         rows={reportData}
