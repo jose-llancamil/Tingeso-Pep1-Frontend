@@ -28,7 +28,7 @@ const AverageRepairTimeReport = () => {
   return (
     <Box sx={{ height: 400, width: '100%' }}>
       <Typography variant="h6" gutterBottom component="div" sx={{ mb: 3 }}>
-        Información sobre el tiempo promedio de reparación
+        Informe sobre el tiempo promedio de reparación
       </Typography>
       <Typography variant="body2" gutterBottom>
       Este reporte muestra el tiempo promedio de reparación de cada marca.

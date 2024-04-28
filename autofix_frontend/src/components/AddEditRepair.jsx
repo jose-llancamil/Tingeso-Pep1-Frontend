@@ -31,6 +31,13 @@ const AddEditRepair = () => {
     const { id } = useParams();
     const navigate = useNavigate();
 
+    const costMatrix = {
+        'Gasoline': [120000, 130000, 350000, 210000, 150000, 100000, 100000, 180000, 150000, 130000, 80000],
+        'Diesel': [120000, 130000, 450000, 210000, 150000, 120000, 100000, 180000, 150000, 140000, 80000],
+        'Hybrid': [180000, 190000, 700000, 300000, 200000, 450000, 100000, 210000, 180000, 220000, 80000],
+        'Electric': [220000, 230000, 800000, 300000, 250000, 0, 100000, 250000, 180000, 0, 80000]
+    };
+
     useEffect(() => {
         vehicleService.getAll().then(response => {
             setVehicles(response.data);
@@ -59,6 +66,17 @@ const AddEditRepair = () => {
                 });
         }
     }, [id]);
+
+    useEffect(() => {
+        if (vehicleId && repairType) {
+            const vehicle = vehicles.find(v => v.vehicleId === vehicleId);
+            if (vehicle) {
+                const typeIndex = parseInt(repairType) - 1;
+                const cost = costMatrix[vehicle.engineType][typeIndex];
+                setRepairCost(cost.toString());
+            }
+        }
+    }, [vehicleId, repairType, vehicles]);
 
     const saveRepair = (e) => {
         e.preventDefault();
@@ -102,35 +120,35 @@ const AddEditRepair = () => {
                     onChange={setEntryDate}
                     renderInput={(params) => <TextField fullWidth {...params} sx={{ mb: 2 }} />}
                 />
-                <br/>
+                <br />
                 <TimePicker
                     label="Hora de Entrada"
                     value={entryTime}
                     onChange={setEntryTime}
                     renderInput={(params) => <TextField fullWidth {...params} sx={{ mb: 2 }} />}
                 />
-                <br/>
+                <br />
                 <DatePicker
                     label="Fecha de Salida"
                     value={exitDate}
                     onChange={setExitDate}
                     renderInput={(params) => <TextField fullWidth {...params} sx={{ mb: 2 }} />}
                 />
-                <br/>
+                <br />
                 <TimePicker
                     label="Hora de Salida"
                     value={exitTime}
                     onChange={setExitTime}
                     renderInput={(params) => <TextField fullWidth {...params} sx={{ mb: 2 }} />}
                 />
-                <br/>
+                <br />
                 <DatePicker
                     label="Fecha de Recogida"
                     value={customerPickupDate}
                     onChange={setCustomerPickupDate}
                     renderInput={(params) => <TextField fullWidth {...params} sx={{ mb: 2 }} />}
                 />
-                <br/>
+                <br />
                 <TimePicker
                     label="Hora de Recogida"
                     value={customerPickupTime}
@@ -140,9 +158,6 @@ const AddEditRepair = () => {
             </LocalizationProvider>
             <FormControl fullWidth sx={{ mt: 2 }}>
                 <TextField label="Estado" value={status} onChange={e => setStatus(e.target.value)} sx={{ mb: 1 }} />
-            </FormControl>
-            <FormControl fullWidth sx={{ mt: 2 }}>
-                <TextField label="Costo de Reparación" type="number" value={repairCost} onChange={e => setRepairCost(e.target.value)} sx={{ mb: 1 }} />
             </FormControl>
             <FormControl fullWidth sx={{ mt: 2 }}>
                 <InputLabel id="repair-type-label">Tipo de Reparación</InputLabel>
@@ -171,6 +186,9 @@ const AddEditRepair = () => {
                         </MenuItem>
                     ))}
                 </Select>
+            </FormControl>
+            <FormControl fullWidth sx={{ mt: 2 }}>
+                <TextField label="Costo de Reparación" type="number" value={repairCost} onChange={e => setRepairCost(e.target.value)} sx={{ mb: 1 }} />
             </FormControl>
             <Button variant="contained" color="primary" type="submit" startIcon={<SaveIcon />} sx={{ mt: 2 }}>
                 Guardar

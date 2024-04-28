@@ -93,7 +93,7 @@ const RepairList = () => {
             <TableCell align="left" sx={{ fontWeight: "bold" }}>Modelo</TableCell>
             <TableCell align="left" sx={{ fontWeight: "bold" }}>Fecha de Entrada</TableCell>
             <TableCell align="left" sx={{ fontWeight: "bold" }}>Tipo de Reparación</TableCell>
-            <TableCell align="left" sx={{ fontWeight: "bold" }}>Costo</TableCell>
+            <TableCell align="left" sx={{ fontWeight: "bold" }}>Costo Base</TableCell>
             <TableCell align="left" sx={{ fontWeight: "bold" }}>Estado</TableCell>
             <TableCell align="left" sx={{ fontWeight: "bold" }}>Operaciones</TableCell>
           </TableRow>
